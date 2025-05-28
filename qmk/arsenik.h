@@ -36,12 +36,12 @@
 #endif
 
 #ifdef ARSENIK_ENABLE_HRM
-#    define KC_SS _GUI_T(KC_S)
-#    define KC_DD _CTL_T(KC_D)
-#    define KC_FF _ALT_T(KC_F)
-#    define KC_JJ _ALT_T(KC_J)
-#    define KC_KK _CTL_T(KC_K)
-#    define KC_LL _GUI_T(KC_L)
+#    define KC_SS _ALT_T(KC_S)
+#    define KC_DD _GUI_T(KC_D)
+#    define KC_FF _CTL_T(KC_F)
+#    define KC_JJ _CTL_T(KC_J)
+#    define KC_KK _GUI_T(KC_K)
+#    define KC_LL _ALT_T(KC_L)
 #else
 #    define KC_SS KC_S
 #    define KC_DD KC_D
@@ -60,16 +60,16 @@
 #    define AS_TR_HOME  KC_SPC
 #    define AS_TR_TUCK  LAFAYETTE
 #elif defined ARSENIK_ENABLE_SELENIUM_VARIANT
-#    define AS_TL_REACH XX
-#    define AS_TR_REACH XX
-#    define AS_TL_TUCK  LSFT_T(KC_ESC)
-#    define AS_TR_TUCK  LAFAYETTE_T(KC_ENT)
+#    define AS_TL_TUCK XX
+#    define AS_TR_TUCK XX
+#    define AS_TL_HOME  LSFT_T(KC_ESC)
+#    define AS_TR_HOME  LAFAYETTE_T(KC_ENT)
 #    if defined SELENIUM_LEFT_HAND_SPACE
-#        define AS_TL_HOME  LT(_vim_nav, KC_SPC)
-#        define AS_TR_HOME  LT(_num_row, KC_BSPC)
+#        define AS_TL_REACH  LT(_num_row, KC_SPC)
+#        define AS_TR_REACH  LT(_vim_nav, KC_BSPC)
 #    else
-#        define AS_TL_HOME  LT(_vim_nav, KC_BSPC)
-#        define AS_TR_HOME  LT(_num_row, KC_SPC)
+#        define AS_TL_REACH  LT(_vim_nav, KC_BSPC)
+#        define AS_TR_REACH  LT(_num_row, KC_SPC)
 #    endif
 #else
 #    define AS_TL_TUCK LSFT_T(KC_BSPC)
@@ -306,7 +306,20 @@
         k41, k42, k43, k44, k45, k46, XX, XX, k47, k48, k49, k4a, k4b, k4c,\
                        k51, k52, k53,         k54, k55, k56\
     )
-
+#elif defined ARSENIK_LAYOUT_silakka54
+#define ARSENIK_LAYOUT(\
+        k11, k12, k13, k14, k15, k16,      k17, k18, k19, k1a, k1b, k1c,\
+        k21, k22, k23, k24, k25, k26,      k27, k28, k29, k2a, k2b, k2c,\
+        k31, k32, k33, k34, k35, k36,      k37, k38, k39, k3a, k3b, k3c,\
+        k41, k42, k43, k44, k45, k46,      k47, k48, k49, k4a, k4b, k4c,\
+                       k51, k52, k53,      k54, k55, k56\
+    ) LAYOUT(\
+        k11, k12, k13, k14, k15, k16,         k17, k18, k19, k1a, k1b, k1c,\
+        k21, k22, k23, k24, k25, k26,         k27, k28, k29, k2a, k2b, k2c,\
+        k31, k32, k33, k34, k35, k36,         k37, k38, k39, k3a, k3b, k3c,\
+        k41, k42, k43, k44, k45, k46,         k47, k48, k49, k4a, k4b, k4c,\
+                       k51, k52, k53,         k54, k55, k56\
+    )
 #else
 #    error "Arsenik: Unknown layout"
 #endif

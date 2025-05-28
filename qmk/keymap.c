@@ -32,10 +32,10 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_base] = ARSENIK_LAYOUT(
-        KC_CAPS, KC_1, KC_2,  KC_3,  KC_4,  KC_5,      KC_6, KC_7,  KC_8,    KC_9,   KC_0,    KC_DEL,
-        KC_TAB,  KC_Q, KC_W,  KC_E,  KC_R,  KC_T,      KC_Y, KC_U,  KC_I,    KC_O,   KC_P,    KC_BSPC,
-        KC_ESC,  KC_A, KC_SS, KC_DD, KC_FF, KC_G,      KC_H, KC_JJ, KC_KK,   KC_LL,  KC_SCLN, KC_ENTER,
-        KC_LSFT, KC_Z, KC_X,  KC_C,  KC_V,  KC_B,      KC_N, KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+        KC_CAPS, KC_1, KC_2,  KC_3,  KC_4,  KC_5,      KC_6, KC_7,  KC_8,    KC_9,   KC_0,    AS(EQL),
+        KC_TAB,  KC_Q, KC_W,  KC_E,  KC_R,  KC_T,      KC_Y, KC_U,  KC_I,    KC_O,   KC_P,    AS(UNDS),
+        KC_ESC,  KC_A, KC_SS, KC_DD, KC_FF, KC_G,      KC_H, KC_JJ, KC_KK,   KC_LL,  KC_SCLN, AS(PIPE),
+        KC_LSFT, KC_Z, KC_X,  KC_C,  KC_V,  KC_B,      KC_N, KC_M,  KC_COMM, KC_DOT, KC_SLSH, AS(SLSH),
          AS_TL_TUCK,   AS_TL_HOME,   AS_TL_REACH,      AS_TR_REACH,   AS_TR_HOME,   AS_TR_TUCK
     ),
 
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // for instance, calling `tap_code(KC_B)` if KC_A is pressed but true is
 // returned, "ba" is sent, but if `false` is returned, it’s just "b"
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-#   ifdef SELENIUM_RESTORE_SPACE
+#   if 0//def SELENIUM_RESTORE_SPACE
     static bool thumb_mod_same_hand_as_space_held = false;
     if ((keycode & 0xff) == KC_SPC && record->tap.count == 0)
         thumb_mod_same_hand_as_space_held = record->event.pressed;
@@ -99,7 +99,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // Let QMK do its thing on key releases.
     if (!record->event.pressed) return true;
 
-#   ifdef SELENIUM_RESTORE_SPACE
+#   if 0//def SELENIUM_RESTORE_SPACE
     if ((keycode & 0xff) == KC_BSPC &&
         !thumb_mod_same_hand_as_space_held &&
         record->tap.count > 0
