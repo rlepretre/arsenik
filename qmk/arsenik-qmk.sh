@@ -64,9 +64,9 @@ function make_new_arsenik_keymap() {
 
     layout="ARSENIK_$layout"
 
-    rm "$arsenik_folder"/keymap.*
-    cat ./arsenik_config.h >> "$arsenik_folder/config.h"
-    cat ./rules.mk >> "$arsenik_folder/rules.mk"
+    rm -r "$arsenik_folder"/*
+    cp ./arsenik_config.h "$arsenik_folder/config.h"
+    cp ./rules.mk "$arsenik_folder/rules.mk"
     cp ./keymap.c ./arsenik.h ./keymap_ergol.h "$arsenik_folder"
 
     # echo "s/ARSENIK_PLACEHOLDER_LAYOUT/$layout/"

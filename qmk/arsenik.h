@@ -60,9 +60,9 @@
 #    define AS_TR_HOME  KC_SPC
 #    define AS_TR_TUCK  LAFAYETTE
 #elif defined ARSENIK_ENABLE_SELENIUM_VARIANT
-#    define AS_TL_TUCK XX
-#    define AS_TR_TUCK XX
-#    define AS_TL_HOME  LSFT_T(KC_ESC)
+#    define AS_TL_TUCK _ALT
+#    define AS_TR_TUCK _GUI
+#    define AS_TL_HOME  LSFT_T(KC_TAB)
 #    define AS_TR_HOME  LAFAYETTE_T(KC_ENT)
 #    if defined SELENIUM_LEFT_HAND_SPACE
 #        define AS_TL_REACH  LT(_num_row, KC_SPC)
